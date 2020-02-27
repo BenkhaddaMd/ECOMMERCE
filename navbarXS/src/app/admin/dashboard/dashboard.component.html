@@ -1,0 +1,59 @@
+
+<mat-card  class="mb-4">
+  <h1>Our Categories</h1>
+
+<table class="table ">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cat of allCategories">
+        <td><input type="text" class="form-control" disabled name="name" [(ngModel)]="cat.name"></td>
+        <td><input type="text" class="form-control" disabled name="description" [(ngModel)]="cat.description"></td>
+      </tr>
+     
+      <tr>
+     
+    </tbody>
+  </table>
+  <a type="submit" routerLink ="/admin/editCategory" class="btn btn-block" style="background-color: #723dbe;color:#fff;letter-spacing: 1px;font-size: 18px;">Edit</a>
+
+</mat-card>
+
+<mat-card class="mt-4 mb-4">
+
+  <h1>Our Products</h1>
+<table class="table ">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Category</th>
+        <th scope="col">Color</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cat of allProducts">
+        <td><input type="text" class="form-control" disabled name="name" [(ngModel)]="cat.name"></td>
+        <td><input type="text" class="form-control" disabled name="description" [(ngModel)]="cat.description"></td>
+        <td><input type="text" class="form-control" disabled name="category" [(ngModel)]="cat.category"></td>
+        <td><input type="text" class="form-control" disabled name="color" [(ngModel)]="cat.color"></td>
+        <td><input type="text" class="form-control" disabled name="quantity" [(ngModel)]="cat.quantity"></td>
+        <td><input type="text" class="form-control" disabled name="price" [(ngModel)]="cat.price"></td>
+
+    </tr>
+     
+      <tr>
+     
+    </tbody>
+  </table>
+  <a type="submit" routerLink ="/admin/editProduct" class="btn btn-block" style="background-color: #723dbe;color:#fff;letter-spacing: 1px;font-size: 18px;">Edit</a>
+
+</mat-card>

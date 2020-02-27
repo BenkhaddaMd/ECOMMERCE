@@ -1,0 +1,51 @@
+
+
+
+        <mat-drawer-container class="example-container" autosize>
+          <mat-drawer #drawer class="example-sidenav" mode="side">
+              <div class="list-group">
+                  <button (click)="all()" class="list-group-item list-group-item-action active">
+                    All
+                  </button>
+                  <button *ngFor="let category of allCategories"  (click)="switch(category.name)" class="list-group-item list-group-item-action">{{category.name | uppercase}}</button>
+                </div>      
+          </mat-drawer>
+        
+          <div class="example-sidenav-content">
+            <section id="banner">
+              <button type="button" mat-fab color="accent" (click)="drawer.toggle()" class="ml-2">
+                 <h6>menu</h6>
+              </button>
+                
+                  <div class="container">
+                    <div class="row">
+                          
+                          <div class="row">
+                            <div class="col-sm-12"><h3>Products</h3></div>
+                            <div *ngFor="let product of productsSelected" class="col-md-3 col-xl-3 card text-white bg-secondary mb-1 ml-3" style="max-width: 18rem;min-width: 18rem;">
+                              <div class="card-header">{{product.name}}</div>
+                              <div class="card-body">
+                                <h5 class="card-title">Description:</h5>
+                                <p class="card-text">{{product.description}}</p>
+                                <h5 class="card-title">Color:</h5>
+                                <p class="card-text">{{product.color}}</p>
+                                <h5 class="card-title">Price:</h5>
+                                <p class="card-text">{{product.price}}</p>
+                              </div>
+                              <div class="card-footer" >
+                                <button class="btn" (click)="toProduct(product.id)" style="width: 100%;">More</button>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                  </div>
+                      </section>
+      
+          </div>
+      
+             
+           
+          
+      
+        </mat-drawer-container>

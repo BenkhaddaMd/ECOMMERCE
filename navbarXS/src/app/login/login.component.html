@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    
+  </head>
+<body>
+<section class="login">
+    <div class="img d-none d-xl-block">
+        <img src="../assets/images/Wave_phone.png" alt="">
+    </div>
+<div class="">
+  <div class="row">
+    <div class="col d-none d-xl-block div-img">
+      <img src="../assets/images/undraw_authentication_fsn5.svg" alt="" class="img-fluid img-phone">
+    </div> 
+   
+    <div class=" login-container col-12 col-xl-6">
+  
+          <div class="container d-flex justify-content-center">
+            <form class="text-center col-lg-10" style="max-width:400px"  #loginForm=ngForm   >
+              <img src="../assets/images/undraw_profile_pic_ic5t (1).svg" class="img-fluid img-avatar">
+              <h2 >WELCOME</h2>
+            <div class="row">
+              <div class="col-6">
+                <button type="button" class="btn btn-block btn-google hvr-float-shadow" #loginRef>
+                 <img src="../assets/images/icon-google.png" alt=""> Google
+                </button>
+                
+              </div>
+              <div class="col-6">
+             <button class="btn  hvr-float-shadow btn-block" style="background-color: #3b5998;" (click)="login()"><i class="fab fa-facebook" ></i> Facebook</button>
+              </div>
+            </div>
+                <div class="form-group">
+<div style="position: relative;">
+  <i class="fa fa-user"></i><input type="text" (blur)="remove_is_invalid()"  class="form-control rounded-pill form-control-lg" placeholder="Email" [(ngModel)]="form.email"  name="email" required email id="email">
+  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+</div>  
+         
+                </div>
+                <div class="form-group">
+                  <i class="fa fa-lock"></i>  <input (blur)="remove_is_invalid()" type="text" class="form-control  rounded-pill form-control-lg" placeholder="Password" [(ngModel)]="form.password" name="password" required minlength="3" id="password">
+              </div>
+              <button class=" mt-10 btn btn-primary btn-block rounded-pill btn_login" [disabled]="loginForm.invalid || invalid" (click)="onSubmit()" >LOGIN</button>
+            <div class="row">
+              <div class="col-6">
+          <a routerLink="/register">Register now</a>
+
+              </div>
+              <div class="col-6">
+      <a routerLink="/resetPassword">Forgot Password</a>
+
+              </div>
+            </div>
+            </form>
+          </div>
+       
+    </div> 
+   
+  </div>
+</div>
+</section>
+</body>
+
+</html>
+

@@ -1,0 +1,23 @@
+
+  #banner{
+    background-image: linear-gradient(to right,#989799,#dadada);
+    min-height: 80vh;
+    padding-top:1%;
+    color:#fff;
+    
+    }
+    .example-container {
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+ 
+    .example-sidenav-content button {
+      background-color: rgb(218, 209, 214);
+    }
+    
+    .example-sidenav {
+      padding: 20px;
+    }
+    .card-footer a{
+      cursor: pointer;
+  }

@@ -1,0 +1,22 @@
+                       
+    <div class="row">
+      <div class="col-sm-12"><h3>Products</h3></div>
+      <div class=" card text-white bg-secondary mb-1 ml-3" style="max-width: 18rem;min-width: 40rem;">
+        <div class="card-header">{{theProduct?.name}}</div>
+        <div class="card-body">
+          <h5 class="card-title">Description:</h5>
+          <p class="card-text">{{theProduct?.description}}</p>
+          <h5 class="card-title">Color:</h5>
+          <p class="card-text">{{theProduct?.color}}</p>
+          <h5 class="card-title">Price:</h5>
+          <p class="card-text">{{theProduct?.price}}</p>
+        </div>
+        <div class="card-footer" >
+          <a (click)="addPanier()"  class="nav-link hvr-icon-down">
+            <i style="font-size:30px;color:#F79F1F;"  class="fa fa-cart-plus hvr-icon"></i>
+          </a>
+          <input matInput type="number" [value]=1 [(ngModel)]="quantitySelected" [min]=1 [max]="maxQuantity" >
+        </div>
+      </div>
+      
+    </div>

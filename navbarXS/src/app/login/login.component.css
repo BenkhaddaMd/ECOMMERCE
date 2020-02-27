@@ -1,0 +1,142 @@
+.login .img img{
+    width:700px;
+    position: fixed;
+    left:220px;
+    top:0;
+    height:100%;
+  
+}
+.login form{
+ 
+ margin-top:100px;
+   
+}
+.login form .form-control{
+    font-size:15px;
+    font-weight: 500;;
+    min-height: 48px;
+
+    padding-left: 33px;
+}
+.login form .form-control:focus{
+    border-color:#723dbe;
+    box-shadow:0 0 0 0.2rem rgba(114,61,90,.1);
+}
+.login form a{
+    text-decoration: none;
+
+}
+
+
+.login form .btn_login{
+    background-color:#c12ab9 ;
+    color:#fff;
+    font-size:15px;
+    font-weight: 600;
+    border-color:#c12ab9 ;
+    margin-top:15px;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+ 
+    color:#666;
+  }
+.login form button:focus{
+
+    box-shadow:0 0 0 0.2rem rgba(114,61,90,.1);
+}
+.login form .btn_login:hover{
+    transition:all .5s;
+    background-color: #723dbe;
+}
+.login  div  form h2{
+    margin-bottom: 51px;
+    font-family: 'Open Sans', 'sans-serif';
+}
+@media (min-width: 0px) and (max-width: 991.98px)  { 
+    .login  div  form{
+        margin-top:60px;
+    }
+}
+@media  (min-width:991.98px) and (max-width: 1199.98px) { 
+    
+    .login .img img{
+       width:47%;
+    }
+  
+ }
+ @media  (max-width:991.98px){ 
+    
+    .login .img img{
+        width:47%;
+    }
+    
+  
+ }
+ .login .img img{
+    width:47%;
+}
+
+
+ .login .div-img img{
+    max-height: 400px;
+    margin-top: 165px;
+    margin-left:20px;
+
+}
+.login form .img-avatar{
+    max-height: 93px;
+    margin-bottom: 19px;
+}
+body{
+   overflow: hidden;
+}
+.login form .form-group{
+position: relative;
+}
+.login form .form-group i{
+   position: absolute;
+   top: 50%;
+    transform: translateY(-50%) !important;
+    left: 10px;
+    font-size: 22px;
+    font-weight:900px;
+   color: #d9d9d9
+    }
+    .login form .form-group i.fa-user{
+        top:32%;
+    }
+    .row  div button.btn_login{
+        margin-bottom: 10px;
+    margin-top: 30px;
+    }
+    .row  div button:not(.btn_login){
+margin-bottom: 30px;
+color:#fff;
+font-size:20px;
+
+    }
+    .row div button.btn-google img {
+        width: 30px;
+        padding-bottom: 3px;
+    }
+    .row div button.btn-google {
+        color: #555555;
+        background-color: #fff;
+        padding-left:0;
+        border-radius:5px;
+        border:2px solid grey;
+
+    }
+    .btn-block {
+
+        
+        height: 46px;
+    }
+    
+    .hvr-float-shadow{
+        transition: all .3s ease;
+    }
+
+   

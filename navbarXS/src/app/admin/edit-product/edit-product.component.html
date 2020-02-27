@@ -1,0 +1,38 @@
+<mat-card class="mt-4 mb-4">
+
+    <h1>Edit Products</h1>
+  <table class="table ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Product Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Category</th>
+          <th scope="col">Color</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pro of allProducts; let i = index">
+          <td><input type="text" class="form-control" name="name" [(ngModel)]="pro.name"></td>
+          <td><input type="text" class="form-control" name="description" [(ngModel)]="pro.description"></td>
+          <td>
+            <select class="form-control" name="category" [(ngModel)]="pro.category">
+                <option *ngFor="let Cat of allCategories" [value]="Cat.name">{{Cat.name}}</option>
+              </select>
+          </td>
+          <td><input type="text" class="form-control" name="color" [(ngModel)]="pro.color"></td>
+          <td><input type="text" class="form-control" name="quantity" [(ngModel)]="pro.quantity"></td>
+          <td><input type="text" class="form-control" name="price" [(ngModel)]="pro.price"></td>
+          <td><button mat-mini-fab color="warn" (click)="delete(i)"><i class="fas fa-trash"></i></button></td> 
+      </tr>
+       
+        <tr>
+       
+      </tbody>
+    </table>
+    <button type="submit" (click)="update()" class="btn btn-block" style="background-color: #723dbe;color:#fff;letter-spacing: 1px;font-size: 18px;">Update</button>
+
+  </mat-card>
+  

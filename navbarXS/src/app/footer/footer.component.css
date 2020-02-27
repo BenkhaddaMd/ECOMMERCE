@@ -1,0 +1,118 @@
+p{
+    color: rgb(44, 42, 42)10, 5, 5);
+    line-height: 25px;
+  }
+  
+  h2, h3{
+    color: rgb(0, 0, 0);
+  }
+  h2{
+    font-size:18px;
+  }
+  .footer-top{
+    background: darken($color: #070d1b, $amount: 0);
+  }
+  .segment-one h3{
+    font-family: monospace;
+    color: rgb(0, 0, 0);
+    letter-spacing: 3px;
+    margin: 10px 0;
+  }
+  .segment-two h2{
+    color: rgb(0, 0, 0);
+    font-family: monospace;
+    text-transform: uppercase;
+  }
+  .segment-two h2:before{
+    content: '|';
+    color: #bb29df;
+    font-size: 27px;
+    padding-right:10px;
+  }
+  
+  .segment-two ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .segment-two ul li{
+    border-bottom: 2px solid rgba(216, 92, 233, 0.3);
+    line-height: 40px²;
+  } 
+  .segment-two ul li a{
+    text-decoration: none;
+    color: rgb(78, 78, 78);
+  } 
+  
+  .segment-three h2{
+    color: rgb(0, 0, 0);
+    font-family: monospace;
+    text-transform: uppercase;
+  }
+  .segment-three h2:before{
+    content: '|';
+    color: #bb29df;
+    font-size: 27px;
+    padding-right:10px;
+  }
+ 
+  .segment-three a {
+    background: #da4adf;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-left: 15px;
+  }
+  .segment-three a i{
+    font-size: 20px;
+    color:rgb(255, 255, 255);
+    padding: 10px 12px;
+  }
+  
+  .segment-four h2{
+    color: rgb(0, 0, 0);
+    font-family: monospace;
+    text-transform: uppercase;
+  } 
+  .segment-four h2:before{
+    content: '|';
+    color: #bb29df;
+    font-size: 27px;
+    padding-right:10px;
+  }
+  .segment-four form input[type=submit]{
+    background-color: #bb29df;
+    border: none;
+    padding: 3px 15px;
+    margin-left: -35px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .input-group-prepend{
+    margin-left: 30px;
+  }
+  @media only screen and (max-width: 767px){
+    .segment-one, .segment-two, .segment-three, .segment-four{
+      padding-top: 47px;
+    }
+    .footer-top{
+      padding-top: 10px ;
+    }
+  }
+  @media only screen and (min-width: 767px){
+    
+    .footer-top{
+      padding-top: 80px ;
+    }
+  }
+  
+  .footer-bottom-text{
+    text-align: center;
+    background: rgb(200, 63, 228);
+    line-height: 70px;
+    margin-top: 20px;  
+    color: #fff;
+  }
+  

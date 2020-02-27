@@ -1,0 +1,30 @@
+
+  
+    <div class="example-sidenav-content">
+      <button class="m-1" mat-fab color="primary" [matMenuTriggerFor]="tools">Tools</button>
+
+<mat-menu #tools="matMenu">
+  <button mat-menu-item (click)="navigateTo('admin')"> Dashboard</button>
+  <button mat-menu-item [matMenuTriggerFor]="add">Add</button>
+  <button mat-menu-item [matMenuTriggerFor]="edit">Edit</button>
+</mat-menu>
+
+<mat-menu #add="matMenu">
+  <button mat-menu-item (click)="navigateTo('newCategory')">Category</button>
+  <button mat-menu-item (click)="navigateTo('newProduct')">Product</button>
+  <button mat-menu-item>Others</button>
+</mat-menu>
+
+<mat-menu #edit="matMenu">
+  <button mat-menu-item (click)="navigateTo('editCategory')">Category</button>
+  <button mat-menu-item (click)="navigateTo('editProduct')">Product</button>
+  <button mat-menu-item>Others</button>
+</mat-menu>
+          
+    </div>
+
+        <div class="row">
+          <div class="col-sm-10" style="margin: auto">
+            <router-outlet></router-outlet>
+            </div>
+            </div>

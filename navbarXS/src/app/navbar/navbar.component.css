@@ -1,0 +1,21 @@
+.btn-mat {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative; }
+ .btn-mat {
+    background: transparent;
+    border-color: transparent; }
+  .btn-mat:after {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background: #a517ba;
+      border-radius: 10px; }
