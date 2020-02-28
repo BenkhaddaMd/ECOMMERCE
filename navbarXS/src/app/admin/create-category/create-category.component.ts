@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/admin-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-category',
@@ -11,17 +12,17 @@ export class CreateCategoryComponent implements OnInit {
     name: null,
     description: null
 };
-  constructor(private adminService:AdminService) { }
+  constructor(private adminService:AdminService,private router:Router) { }
 
   ngOnInit() {
   }
   onSubmitCategory(){
     this.adminService.createCategory(this.category).subscribe(
-     data => console.log(data),
+     data => this.router.navigateByUrl("admin"),
+  
      error => console.error(error)
    );
-   this.category.name = null;
- this.category.description = null;
+
 }
 
 }

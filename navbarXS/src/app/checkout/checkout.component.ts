@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PanierServiceService } from '../Services/panier-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { commands } from '../everything.service';
 
 @Component({
   selector: 'app-checkout',
@@ -31,11 +32,12 @@ export class CheckoutComponent implements OnInit {
               private router:Router) { }
 
   onSubmit(){
-   this.checkoutForm.fullname=`${this.first_name} ${this.last_name}`;        
-   this.insertCommand()   
+   this.checkoutForm.fullname=`${this.first_name} ${this.last_name}`;
+   this.insertCommand();
    localStorage.removeItem('command');
-    this.router.navigateByUrl('cart')
+   this.router.navigateByUrl('cart');
   }
+
   getUserid(){
     let email = atob(localStorage.getItem('DB'));
     this.panierServie.getUserId(email).subscribe(
@@ -74,8 +76,4 @@ export class CheckoutComponent implements OnInit {
     this.getUserid()
   }
 
-}
-class commands{
-  idProduct:number;
-  quantity:number;
 }

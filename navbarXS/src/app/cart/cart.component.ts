@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PanierServiceService } from '../Services/panier-service.service';
+import { commands, TempoPanier, Product } from '../everything.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,7 @@ import { PanierServiceService } from '../Services/panier-service.service';
 export class CartComponent implements OnInit {
   allCommands:commands[] = JSON.parse(localStorage.getItem('command'));
   allTempoCommands:TempoPanier[] = [];
-  constructor(private panierServie:PanierServiceService,) { }
+  constructor(private panierServie:PanierServiceService) { }
 
   ngOnInit() {
    
@@ -55,22 +56,4 @@ export class CartComponent implements OnInit {
       error=>console.error(error)
   );
   }
-}
-
-class Product{
-  id:null;
-  name: null; 
-  description: null;
-  price: number;
-  category: null;
-  color: null;
-  quantity: null;
-}
-class commands{
-  idProduct:number;
-  quantity:number;
-}
-class TempoPanier{
-  quantity:number;
-  product:Product;
 }

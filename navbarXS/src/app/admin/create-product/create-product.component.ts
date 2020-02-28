@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/admin-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -20,7 +21,7 @@ export class CreateProductComponent implements OnInit {
     quantity: null
 };
 allCategories : Category[] = [];
-  constructor(private adminService:AdminService) { }
+  constructor(private adminService:AdminService,private router:Router) { }
 
   ngOnInit() {
     this.adminService.getCategories().subscribe(
@@ -33,15 +34,11 @@ allCategories : Category[] = [];
 }
 onSubmitProduct(){
   this.adminService.createProduct(this.product).subscribe(
-   data => console.log(data),
+   data =>  this.router.navigateByUrl("admin"),
    error => console.error(error)
  )
- this.product.name = null;
- this.product.description = null;
- this.product.color = null;
- this.product.category = null;
- this.product.price = null;
- this.product.quantity = null;
+ 
+
 
 }
 
