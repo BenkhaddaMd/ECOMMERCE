@@ -31,8 +31,8 @@ export class AdminService {
   }
   deleteCategory(id){
     return this.http.get(`http://localhost:8000/api/deleteCategory/${id}`);
-
   }
+  
 }
 
 

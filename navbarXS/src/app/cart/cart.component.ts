@@ -8,12 +8,16 @@ import { commands, TempoPanier, Product } from '../everything.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  allCommands:commands[] = JSON.parse(localStorage.getItem('command'));
+  allCommands:commands[] = [];
   allTempoCommands:TempoPanier[] = [];
   constructor(private panierServie:PanierServiceService) { }
 
   ngOnInit() {
-   
+    if(JSON.parse(localStorage.getItem('command')) == undefined){
+      localStorage.setItem('command','[]');
+    }
+    this.allCommands = JSON.parse(localStorage.getItem('command'));
+
     this.getCommandsLines();
   }
  
@@ -27,21 +31,22 @@ export class CartComponent implements OnInit {
   }
   deleteCommand(id){
     let i=0;
-    for(let oneLine of this.allCommands)
-    {
-      
-      if(oneLine.idProduct == id)
+    
+      for(let oneLine of this.allCommands)
       {
-        this.allCommands.splice(i, 1)
+        
+        if(oneLine.idProduct == id)
+        {
+          this.allCommands.splice(i, 1)
+        }
+        if(this.allTempoCommands[i].product.id == id)
+        {
+          this.allTempoCommands.splice(i, 1)
+  
+        }
+        i++;
       }
-      if(this.allTempoCommands[i].product.id == id)
-      {
-        this.allTempoCommands.splice(i, 1)
-
-      }
-      i++;
-    }
-    localStorage.setItem('command', JSON.stringify(this.allCommands));
+      localStorage.setItem('command', JSON.stringify(this.allCommands));
     
   }
 

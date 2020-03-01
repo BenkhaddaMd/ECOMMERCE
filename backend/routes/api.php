@@ -39,9 +39,14 @@ Route::group([
     Route::post('saveCommands', 'panierController@saveCommands');
     Route::post('saveLineCommand', 'panierController@saveLineCommand');
     Route::get('getCommands/{idUser}', 'panierController@getCommands');
+    Route::get('getCommandsForAdmin', 'panierController@getCommandsForAdmin');    
     Route::get('getCommandsLines/{id}', 'panierController@getCommandsLines');
     Route::get('getThisProduct/{id}', 'panierController@getThisProduct');
     Route::get('getUserId/{email}', 'panierController@getUserId');
+    Route::get('getQuantity/{id}', 'panierController@getQuantity');
+    Route::post('reduceQuantity', 'panierController@reduceQuantity');
+    Route::post('imageUpload', 'ImageUploadController@imageUploadPost');
+
 
     
     

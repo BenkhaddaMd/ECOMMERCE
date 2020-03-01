@@ -43,6 +43,12 @@ class panierController extends Controller
         return $commands;
     }
 
+    function getCommandsForAdmin()
+    {
+        $commands = command::All();
+        return $commands;
+    }
+
     function getCommandsLines($id)
     {
         $commands = listOfCommands::where('idCommand', $id)->cursor();
@@ -60,5 +66,18 @@ class panierController extends Controller
         $userId = User::where('email', $email)->first()->id;
         return $userId;
     }
+
+    function getQuantity($id)
+    {
+        $quan = Product::where('id', $id)->first()->quantity;
+        return $quan;
+    }
+    function reduceQuantity(Request $request)
+    {
+        DB::table('products')
+        ->where('id', $request->id)
+        ->update(['quantity'=>$request->quantity]);
+    }
+
     
 }

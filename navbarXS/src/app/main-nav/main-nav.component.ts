@@ -5,8 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from '../Services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from '../Services/token.service';
-import { HttpClient } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
@@ -23,9 +22,7 @@ export class MainNavComponent {
   constructor(private breakpointObserver: BreakpointObserver,
     private authService:AuthService,
     private router:Router,
-    private handleToken:TokenService,
-    private http:HttpClient,
-    private cookie:CookieService
+    private handleToken:TokenService
     ) {}
   
 

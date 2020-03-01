@@ -35,6 +35,7 @@ class product_categoryController extends Controller
         $pro->price = $request->price;
         $pro->color = $request->color;
         $pro->quantity = $request->quantity;
+        $pro->image = $request->image;
         $pro->save();
        return $pro;
     }

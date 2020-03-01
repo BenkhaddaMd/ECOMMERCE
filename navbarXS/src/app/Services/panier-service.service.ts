@@ -27,7 +27,14 @@ export class PanierServiceService {
   }
   saveLineCommand(line){
     return this.http.post('http://127.0.0.1:8000/api/saveLineCommand',line);
-
   }
-
+  getQuantity(idProduct){
+    return this.http.get(`http://127.0.0.1:8000/api/getQuantity/${idProduct}`);
+  }
+  reduceQuantity(data){
+    return this.http.post('http://127.0.0.1:8000/api/reduceQuantity',data);
+  }
+  getCommandsForAdmin(){
+    return this.http.get('http://127.0.0.1:8000/api/getCommandsForAdmin');
+  }
 }

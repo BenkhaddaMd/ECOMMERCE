@@ -40,6 +40,7 @@ import { ProductComponent } from './product/product.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PurchasesComponent } from './purchases/purchases.component';
 import { CartComponent } from './cart/cart.component';
+import { CommandsComponent } from './admin/commands/commands.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { CartComponent } from './cart/cart.component';
     ProductComponent,
     CheckoutComponent,
     PurchasesComponent,
-    CartComponent
+    CartComponent,
+    CommandsComponent
   ],
   imports: [
     RouterModule,

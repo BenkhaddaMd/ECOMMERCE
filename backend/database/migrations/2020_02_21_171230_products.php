@@ -21,7 +21,9 @@ class Products extends Migration
             $table->string('color');
             $table->string('price');
             $table->string('quantity');
+            $table->string('image');
             $table->timestamps();
+            
         });
     }
 

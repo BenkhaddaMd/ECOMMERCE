@@ -30,16 +30,16 @@
 					<button (click)="deleteCommand(oneLineCommand?.product.id)" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>								
 				</td>
 			</tr>
-			<tr *ngIf="allCommands == undefined">
+			<tr *ngIf="allTempoCommands.length == 0">
 				<td><h4>Nothing</h4></td>
 			</tr>
         </tbody>
 		<tfoot>
 			<tr>
-				<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+				<td><a routerLink="/products" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 				<td colspan="2" class="hidden-xs"></td>
 				<td class="hidden-xs text-center"><strong>Total ${{total()}}</strong></td>
-				<td><a routerLink="/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+				<td *ngIf="allTempoCommands.length != 0"><a routerLink="/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 			</tr>
 		</tfoot>
 </table>

@@ -17,42 +17,49 @@ export class PurchasesComponent implements OnInit {
     
   }
  
-
-
   getPurchases(){
     let email = atob(localStorage.getItem('DB'));
+
     this.panierServie.getUserId(email).subscribe(
-      data => 
-      {
+      data=> {        
         this.panierServie.getCommands(data).subscribe(
           (data:command)  => {
-            this.panierServie.getCommandsLines(data.id).subscribe(
-              (data:commandLine[]) => 
-              {
-                for(let oneLine of data) 
-                {
-                      this.panierServie.getThisProduct(oneLine.idProduct).subscribe(
-                          (data:Product)=>
-                          {
-                            this.panierInfo.push({quantity:oneLine.quantity,status:oneLine.status,product:data});
-                          },
-                          error=>console.error(error)
-                      );
-                }
-              },
-              error => console.error(error)
-            )
+            
+            if(data)
+            {
+
+              this.panierServie.getCommandsLines(data.id).subscribe(
+                (data:commandLine[]) => 
+                {            
+
+                  for(let oneLine of data) 
+                  {
+                        this.panierServie.getThisProduct(oneLine.idProduct).subscribe(
+                            (data:Product)=>
+                            {
+                              this.panierInfo.push({quantity:oneLine.quantity,status:oneLine.status,product:data});
+                            },
+                            error=>console.error(error)
+                        );
+                  }
+                },
+                error => console.error(error)
+              )
+            }
+            
           },
           error => console.error(error)
         );
-      }
-      ,
-      error => console.log(error)
-    );
+      },
+      error=>console.error(error)
+      
+    )
     
+   
   }
- 
+
 }
+
 class panier{
   quantity:number;
   status:boolean;

@@ -8,17 +8,17 @@
        <a mat-list-item routerLinkActive ="active" [routerLinkActiveOptions]="{exact:true}" routerLink=""  class="nav-link  hvr-icon-down" href="#"><i class="fas fa-home hvr-icon"></i> Home</a>
       <a mat-list-item class="nav-link hvr-icon-down" routerLink="products"><i  style="color:#ff6348"
         class="fab fa-product-hunt hvr-icon"></i> Products</a>
-      <a mat-list-item class="nav-link hvr-icon-rotate" routerLink="cart">
+      <a mat-list-item class="nav-link hvr-icon-rotate" *ngIf="loggedIn" routerLink="cart">
         <i style="color:#3742fa" class="hvr-icon fas fa-shopping-cart"></i>
         Panier</a>
-        <a mat-list-item class="nav-link hvr-icon-down" href="#"  routerLink="register" routerLinkActive="active" 
+        <a mat-list-item class="nav-link hvr-icon-down"  *ngIf="loggedIn"  routerLink="register" routerLinkActive="active" 
         ><i style="color:#2ed573;"
            class=" fas fa-user-circle hvr-icon"></i> Register</a>
-           <a mat-list-item class="nav-link hvr-icon-down" href="#" routerLink="login" routerLinkActive="active" 
+           <a mat-list-item class="nav-link hvr-icon-down"  *ngIf="loggedIn" routerLink="login" routerLinkActive="active" 
            ><i style="color:#F79F1F;"
               class=" fas fa-key hvr-icon"></i> Login</a>
 
-              <a mat-list-item class="nav-link hvr-icon-down" routerLink="admin" routerLinkActive="active" 
+              <a mat-list-item class="nav-link hvr-icon-down" *ngIf="loggedIn" routerLink="admin" routerLinkActive="active" 
               ><i style="color:rgb(233, 93, 0);" class="fas fa-user-cog hvr-icon"></i> Admin</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -37,7 +37,7 @@
       </button>
       <span>ECR</span>
       <span class="spacer"></span>
-       <a mat-list-item class="nav-link hvr-icon-push" routerLinkActive ="active-link" routerLink="profile"><i class="fa fa-user hvr-icon"></i></a>
+       <a mat-list-item class="nav-link hvr-icon-push" routerLinkActive ="active-link" *ngIf="loggedIn" routerLink="profile"><i class="fa fa-user hvr-icon"></i></a>
               <a mat-list-item class="nav-link shadow hvr-buzz-out"  routerLink="login"  *ngIf="!loggedIn">Login</a>
               <a mat-list-item class="nav-link shadow hvr-buzz-out" routerLink="login" *ngIf="loggedIn" (click)="logout()" >Logout</a>
     </mat-toolbar>

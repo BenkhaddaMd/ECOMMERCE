@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TokenService } from '../Services/token.service';
 import { AuthService } from '../Services/auth.service';
 
 @Component({
@@ -47,8 +46,9 @@ export class ProductComponent implements OnInit {
     {
       if(line.idProduct == this.theProduct.id)
       {
+        if(this.maxQuantity>= line.quantity+this.quantitySelected)
         line.quantity += this.quantitySelected;
-        ifexistalready=1;
+        ifexistalready = 1;
       }
     }
 
@@ -63,7 +63,8 @@ export class ProductComponent implements OnInit {
     this.http.get(`http://localhost:8000/api/product/${id}`).subscribe(
       (data:Product) =>   {
         this.theProduct = data;
-        this.maxQuantity = data.quantity;        
+        this.maxQuantity = data.quantity;      
+        this.theProduct.image =  "assets/images/"+this.theProduct.image;
       },
       error => console.error(error)
       );
@@ -80,6 +81,7 @@ class Product{
      category: string;
      color: string;
      quantity: number;
+     image:string;
 }
 
 class command{

@@ -31,6 +31,14 @@
                 <label >Quantity</label>
                 <input type="text" class="form-control" name="quantity" [(ngModel)]="product.quantity">
               </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input type="file" (change)="onImagesSelected($event)" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                    <label class="custom-file-label" for="inputGroupFile03">Choose Images</label>
+                  </div>
+                </div>
+              </div>
           
           <button type="submit" (click)="onSubmitProduct()" class="btn btn-block" style="background-color: #723dbe;color:#fff;letter-spacing: 1px;font-size: 18px;">Create</button>
         </form>

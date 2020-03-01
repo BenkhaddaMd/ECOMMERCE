@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PanierServiceService } from '../Services/panier-service.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { commands } from '../everything.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { commands } from '../everything.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  subscribeEnd = false;
+  quantityTest  :boolean= null;
   public checkoutForm = {
     idUser:null,
     fullname:null,
@@ -24,7 +26,7 @@ export class CheckoutComponent implements OnInit {
     idCommand:null,
     idProduct:null,
     quantity:null
-  }
+  };
   allCommands:commands[] = JSON.parse(localStorage.getItem('command'));
   first_name=null;
   last_name=null;
@@ -34,8 +36,6 @@ export class CheckoutComponent implements OnInit {
   onSubmit(){
    this.checkoutForm.fullname=`${this.first_name} ${this.last_name}`;
    this.insertCommand();
-   localStorage.removeItem('command');
-   this.router.navigateByUrl('cart');
   }
 
   getUserid(){
@@ -51,25 +51,72 @@ export class CheckoutComponent implements OnInit {
   insertCommand(){
     this.panierServie.saveCommands(this.checkoutForm).subscribe(
       data => {
-        console.log(data);
         this.commandLine.idCommand=data;
-        this.insertCommandsLine()
+        this.insertCommandsLine();
       },
       error=>console.error(error)
       
     );
+  }
 
+  reduceQuantity(quantitySelected:number,idProduct){
+    let quan:number;
+    this.panierServie.getQuantity(idProduct).subscribe(
+        (data:number)=> quan = data,
+        error=>error.log(error)
+      );
+      
+      console.log(quan);
+      console.log(quantitySelected);
+        if(quantitySelected <= quan){
+          quan -= quantitySelected;
+          this.panierServie.reduceQuantity({id:idProduct,quantity:quan}).subscribe(
+            error=> console.error(error)
+                      );
+        }
+        else{
+          this.router.navigateByUrl('cart?outofquantity=true');
+        }
+
+  
   }
 
   insertCommandsLine(){
+    let i = 0;
     for(let oneLine of this.allCommands)
     {
       this.commandLine.idProduct=oneLine.idProduct;
       this.commandLine.quantity=oneLine.quantity;
-      this.panierServie.saveLineCommand(this.commandLine).subscribe(
-        data=>console.log(data),
-        error=>console.error(error)
-      )
+      
+      this.panierServie.getQuantity(oneLine.idProduct).subscribe( 
+          (data:number)=> {
+            let quan = data;
+            if(oneLine.quantity <= quan){
+              quan -= oneLine.quantity;
+              this.panierServie.reduceQuantity({id:oneLine.idProduct,quantity:quan}).subscribe(
+                data=> {},
+                error=> console.error(error)
+                          );
+
+                          this.panierServie.saveLineCommand(this.commandLine).subscribe(
+                            data => {
+                              if(this.allCommands[i] == undefined){
+                                localStorage.setItem('command','[]');
+                                this.router.navigateByUrl('cart');
+                              }
+                            },
+                            error=>console.error(error)
+                          );
+            }
+            else{
+              this.router.navigateByUrl('cart?outofquantity=true');
+            }
+          },
+          error=>error.log(error)
+        );
+        
+      
+      i++;
     }
   }
   ngOnInit() {
