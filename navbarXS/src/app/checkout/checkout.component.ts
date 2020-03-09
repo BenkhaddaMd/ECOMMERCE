@@ -3,7 +3,7 @@ import { PanierServiceService } from '../Services/panier-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { commands } from '../everything.service';
 import { PaidForOrNotService } from '../Services/paid-for-or-not.service';
-import { interval, Subscription, of } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',
@@ -160,10 +160,6 @@ export class CheckoutComponent implements OnInit {
 
   }
   ngOnInit() {
-    const source = of('Mohammed');
-    source.subscribe(data => console.log(data)
-    )
-
 
     this.subscription = this.timing.subscribe(val => this.checkQuantity());
 }
