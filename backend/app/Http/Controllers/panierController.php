@@ -22,9 +22,10 @@ class panierController extends Controller
         $com->city = $request->city;
         $com->country = $request->country;
         $com->paymentWay = $request->paymentWay;
+        $com->total = $request->total;
+
         $com->save();
-        $comId = command::where('idUser', $request->idUser)->first()->id;
-        return $comId;
+        return $com->id;
     }
 
     function saveLineCommand(Request $request)
@@ -39,7 +40,7 @@ class panierController extends Controller
     }
     function getCommands($idUser)
     {
-        $commands = command::where('idUser', $idUser)->first();
+        $commands = command::where('idUser', $idUser)->cursor();
         return $commands;
     }
 
@@ -77,6 +78,14 @@ class panierController extends Controller
         DB::table('products')
         ->where('id', $request->id)
         ->update(['quantity'=>$request->quantity]);
+    }
+
+    function changeStatus(Request $request)
+    {
+        DB::table('listofcommands')
+        ->where('id', $request->id)
+        ->update(['status'=>true]);
+
     }
 
     

@@ -8,12 +8,19 @@ use  App\Http\Requests\categoryRequest;
 use  App\Http\Requests\productRequest;
 
 use App\Category;
+use App\User;
 use App\Product;
 use Illuminate\Support\Facades\DB;
 
 
 class product_categoryController extends Controller
 {
+    function isAdmin($email)
+    {
+        $admin = User::where('email', $email)->first()->admin;
+        return $admin;
+    }
+
     function storeCategory(categoryRequest $request)
     {
 

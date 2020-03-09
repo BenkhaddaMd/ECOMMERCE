@@ -232,4 +232,6 @@ return response()->json(['data'=>$data]);
 return response()->json(["error"=>"email has already been taken"],404);
 
 }
+
+
 }

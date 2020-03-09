@@ -18,7 +18,7 @@ class ImageUploadController extends Controller
         //$imageName = time().'.'.$extension;  
         $imageName = $image->getClientOriginalName();
    
-        $path = $request->file('image')->move(public_path('../../navbarXS/src/assets/images'), $imageName);
+        $path = $request->file('image')->move(public_path('../../frontend/src/assets/images'), $imageName);
         }
         return 1;
    

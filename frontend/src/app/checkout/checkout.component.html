@@ -1,0 +1,78 @@
+
+
+      <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  </head>
+<body>
+<section class="login">
+    <div class="img d-none d-xl-block">
+        <img src="../assets/images/Wave_phone.png" alt="">
+    </div>
+<div class="">
+  <div class="row">
+    <div class="col d-none d-xl-block div-img">
+      <img src="../assets/images/payment.png" alt="" class="img-fluid img-phone">
+    </div> 
+   
+    <div class=" login-container col-12 col-xl-6">
+  
+          <div class="container d-flex justify-content-center">
+           
+      <form class="text-center col-lg-10" #checkForm=ngForm  (ngSubmit)="onSubmit()">
+        <h2 >Checkout</h2>
+        <div class="row">
+          <div class="form-group col">
+             <input type="text" class="form-control rounded-pill form-control-lg" name="first_name" [(ngModel)]="first_name"  placeholder="FirstName" required>
+        </div>
+        <div class="form-group col">
+         <input type="text" class="form-control rounded-pill form-control-lg" name="last_name" [(ngModel)]="last_name"  placeholder="LastName" required >
+      </div>
+        </div>
+          <div class="form-group  special">
+            <input type="text" class="form-control rounded-pill form-control-lg" [(ngModel)]="checkoutForm.email" name="email"   placeholder="Email" required email  id="email">        
+          </div>
+      <div class="form-group">
+        <input type="text" class="form-control rounded-pill form-control-lg" name="numero" [(ngModel)]="checkoutForm.numero"   placeholder="Phone"  required>
+    </div>
+     
+
+      <div class="form-group">
+         <input type="text"  class="form-control rounded-pill form-control-lg" placeholder="Address" [(ngModel)]="checkoutForm.address"  name="address" required>
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control rounded-pill form-control-lg" placeholder="City"  [(ngModel)]="checkoutForm.city" name="city" required>
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control rounded-pill form-control-lg" placeholder="Country"  [(ngModel)]="checkoutForm.country" name="country" required>
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control rounded-pill form-control-lg" placeholder="Way of Payment"  [(ngModel)]="checkoutForm.paymentWay" name="paymentWay" required>
+      </div>
+     
+      <button class=" mt-4 btn btn-primary btn-block rounded-pill" [disabled]="checkForm.invalid" >Checkout</button>
+      </form>
+          </div>
+       
+    </div> 
+   
+  </div>
+</div>
+
+</section>
+
+
+
+
+</body>
+
+</html>
+<script>
+   var pidie = new Pidie();
+</script>
+
+

@@ -23,6 +23,7 @@ class Commands extends Migration
         $table->string('city');
         $table->string('country');
         $table->string('paymentWay');
+        $table->string('total');
         $table->timestamps();
     });    }
 

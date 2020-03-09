@@ -46,6 +46,12 @@ Route::group([
     Route::get('getQuantity/{id}', 'panierController@getQuantity');
     Route::post('reduceQuantity', 'panierController@reduceQuantity');
     Route::post('imageUpload', 'ImageUploadController@imageUploadPost');
+    Route::post('changeStatus', 'panierController@changeStatus');
+
+    Route::get('isAdmin/{email}', 'product_categoryController@isAdmin');
+
+    Route::get('execute-payment', 'paypalController@execute');
+
 
 
     
